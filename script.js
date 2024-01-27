@@ -10,6 +10,7 @@ const decimalBtn = document.getElementById("decimal-button");
 const equalBtn = document.getElementById("equal-button");
 const numberBtns = document.querySelectorAll(".number");
 const doubleZero = document.getElementById("double-zero");
+
 // Initalizing variables
 let result = "";
 let operation = "";
@@ -70,7 +71,7 @@ const calculateResult = () => {
     default:
       return;
   }
-  result = evaluatedResult.toString();
+  result = evaluatedResult.toFixed(2).toString();
   operation = "";
   previousOperand = "";
 };
@@ -81,6 +82,7 @@ const deleteLastDigit = () => {
   result = result.slice(0, -1);
   updateDisplay();
 };
+
 // Function to clear display
 const clearDisplay = () => {
   result = "";
@@ -110,20 +112,3 @@ equalBtn.addEventListener("click", () => {
   calculateResult();
   updateDisplay();
 });
-// additionBtn.addEventListener("click", () => selectOperator("+"));
-// additionBtn.addEventListener("click", () => selectOperator("+"));
-
-// if (e.target.innertHTML == "=") {
-//   string = eval(string);
-//   input.value = string;
-// } else if (e.target.innerHTML == "AC") {
-//   string = "";
-//   input.value = string;
-// } else if (e.target.innerHTML == "DEL") {
-//   string = string.substring(0, string.length - 1);
-//   input.value = string;
-// } else {
-//   string += e.target.innerHTML;
-//   input.value = string;
-// }
-// return string;
